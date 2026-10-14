@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Как мы работаем — Покоритель</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono&display=swap">
+<link rel="stylesheet" href="css/style.css">
+<script>document.documentElement.classList.add("js")</script>
+</head>
+<body id="top">
+<header class="site-header">
+  <!-- графическая ссылка на начальную страницу -->
+  <a class="logo" href="index.html" target="_self" aria-label="Покоритель — на главную"><img src="assets/mark-black.png" alt="Логотип"><span>ПОКОРИТЕЛЬ</span></a>
+  <nav class="main-nav" aria-label="Основное меню">
+    <a href="index.html" target="_self">Главная</a>
+    <a href="catalog.html" target="_self">Каталог</a>
+    <a href="plywood.html" target="_self">О фанере</a>
+    <a href="process.html" target="_self" aria-current="page">Как мы работаем</a>
+    <a href="about.html" target="_self">О компании</a>
+    <div class="more">
+      <button class="more-btn" type="button" aria-expanded="false">Ещё<span class="chev">›</span></button>
+      <div class="more-menu">
+        <a href="tasks.html" target="_self"><b>Учебные задания</b><small>Все 15 заданий и где их найти</small></a>
+        <a href="task13.html" target="_self"><b>13. DOM_JS</b><small>Считываем информацию из DOM</small></a>
+        <a href="task14.html" target="_self"><b>14. Кириллица → латиница</b><small>Изменяем паспорт по клику</small></a>
+        <a href="algo.html" target="_self"><b>14. Алгоритмическая задача</b><small>Решение алгоритмической задачи</small></a>
+        <a href="plywood.html#table" target="_self"><b>Сравнительная таблица</b><small>Закладка на странице «О фанере»</small></a>
+        <a href="https://fanerra.ru" target="_blank" rel="noopener"><b>fanerra.ru — о фанере ↗</b><small>Внешний сайт, откроется в новом окне</small></a>
+      </div>
+    </div>
+  </nav>
+  <div class="spacer"></div>
+  <a class="header-phone" href="tel:+79197530101">+7 919 753-01-01</a>
+  <a class="btn header-cta" href="catalog.html" target="_self">Перейти в каталог</a>
+  <button class="burger" type="button" data-menu aria-label="Меню"><span></span><span></span></button>
+</header>
+<div class="mobile-menu">
+  <div class="top"><span>ПОКОРИТЕЛЬ</span><button class="btn btn-light" type="button" data-menu>Закрыть</button></div>
+  <nav aria-label="Мобильное меню">
+    <a href="index.html" target="_self">Главная</a>
+    <a href="catalog.html" target="_self">Каталог</a>
+    <a href="plywood.html" target="_self">О фанере</a>
+    <a href="process.html" target="_self" aria-current="page">Как мы работаем</a>
+    <a href="about.html" target="_self">О компании</a>
+    <a href="tasks.html" target="_self">Учебные задания</a>
+    <a href="task13.html" target="_self">13. DOM_JS</a>
+    <a href="task14.html" target="_self">14. Кириллица → латиница</a>
+    <a href="algo.html" target="_self">14. Алгоритмическая задача</a>
+    <a href="plywood.html#table" target="_self">Сравнительная таблица</a>
+    <a href="https://fanerra.ru" target="_blank" rel="noopener">fanerra.ru — о фанере ↗</a>
+    <a class="small" href="tel:+79197530101" style="margin-top:auto;padding-top:30px">+7 919 753-01-01</a>
+  </nav>
+</div>
+<main>
+
+<section class="section">
+  <h1 class="h-hero" data-reveal style="margin-bottom:60px;max-width:1440px;font-size:clamp(40px,6.35vw,96px);text-wrap:balance">Всего четыре шага — от выбора фанеры до получения заказа</h1>
+  <nav class="page-nav" aria-label="Разделы страницы" data-reveal style="margin:-20px 0 50px"><span>На странице:</span><a href="#steps" target="_self">Четыре шага</a><a href="#order" target="_self">Форма заказа</a><a href="#top" target="_self">К началу ↑</a></nav>
+  <ol class="steps" id="steps">
+    <li data-reveal><span class="n">01</span><h2>Оформление заказа</h2><p>Выберите материал, укажите необходимую толщину, размеры и количество листов. Заполните контактные данные и отправьте заявку.</p></li><li data-reveal><span class="n">02</span><h2>Подтвер&shy;ждение деталей</h2><p>Менеджер уточняет наличие материалов, согласовывает стоимость, способ получения и удобную дату доставки.</p></li><li data-reveal><span class="n">03</span><h2>Подготовка<br>и отправка</h2><p>После подтверждения заказ комплектуется и подготавливается к передаче. При необходимости согласовываются дополнительные услуги по обработке материала.</p></li><li data-reveal><span class="n">04</span><h2>Получение заказа</h2><p>Получите материалы согласованным способом, проверьте количество и состояние листов и приступайте к реализации своего проекта.</p></li>
+  </ol>
+</section>
+<section class="order-sec">
+<div class="order" id="order" data-reveal>
+  <img class="order-mark" src="assets/mark-white.png" alt="">
+  <form class="order-panel" name="plywood_order" action="https://httpbin.org/post" method="post" target="_blank">
+    <h2>Для заказа заполните форму</h2>
+    <h3>Параметры заказа</h3>
+    <label class="f">Материал
+      <select name="material">
+        <option value="">Выберите материал</option>
+        <option value="birch_fk_calibrated">Фанера березовая калиброванная ФК</option>
+        <option value="birch_fk_sanded">Фанера березовая шлифованная ФК</option>
+        <option value="birch_fsf">Фанера березовая ФСФ</option>
+        <option value="conifer_fsf">Фанера хвойная ФСФ</option>
+        <option value="laminated_fof">Фанера ламинированная ФОФ</option>
+        <option value="osb3">Плита ОСБ (OSB-3)</option>
+        <option value="csp">Цементно-стружечная плита ЦСП</option>
+      </select></label>
+    <div class="two">
+      <label class="f">Толщина листа
+        <select name="thickness_mm"><option value="3">3 мм</option><option value="4">4 мм</option><option value="5">5 мм</option><option value="6" selected>6 мм</option><option value="8">8 мм</option><option value="9">9 мм</option><option value="10">10 мм</option><option value="12">12 мм</option><option value="15">15 мм</option><option value="18">18 мм</option><option value="21">21 мм</option><option value="24">24 мм</option></select></label>
+      <label class="f">Кол-во листов<input type="number" name="sheets_count" value="10" min="1" max="500"></label>
+    </div>
+    <div class="f">Способ получения
+      <div class="pills">
+        <label><input type="radio" name="delivery_method" value="delivery" checked><span>Доставка</span></label>
+        <label><input type="radio" name="delivery_method" value="pickup"><span>Самовывоз</span></label>
+      </div>
+    </div>
+    <label class="f f-row">Дата получения<input type="date" name="pickup_date" value="2026-10-21"></label>
+    <h3>Информация о вас</h3>
+    <div class="two">
+      <input type="text" name="first_name" placeholder="Имя" aria-label="Имя">
+      <input type="text" name="last_name" placeholder="Фамилия" aria-label="Фамилия">
+    </div>
+    <div class="two">
+    <input type="email" name="email" placeholder="Почтовый адрес" aria-label="Почтовый адрес">
+    <input type="password" name="account_password" placeholder="Пароль для кабинета" aria-label="Пароль для личного кабинета">
+    </div>
+    <input type="hidden" name="shop" value="pokoritel">
+    <input type="hidden" name="order_source" value="site_order_form">
+    <div class="phone-row">
+      <input type="tel" name="phone" placeholder="Номер телефона" aria-label="Номер телефона">
+      <button type="submit">Отправить все</button>
+    </div>
+    <label class="consent"><input type="checkbox" name="consent" value="yes" checked required> Даю согласие на обработку персональных данных</label>
+  </form>
+</div>
+<p class="to-top"><a href="#top" target="_self">↑ К началу страницы</a></p>
+</section>
+
+</main>
+<footer class="site-footer">
+  <div class="cols">
+    <ul><li><a href="index.html" target="_self">Главная</a></li><li><a href="catalog.html" target="_self">Каталог</a></li><li><a href="plywood.html" target="_self">О фанере</a></li><li><a href="process.html" target="_self" aria-current="page">Как мы работаем</a></li><li><a href="about.html" target="_self">О компании</a></li></ul>
+    <ul><li><a href="tasks.html" target="_self">Учебные задания</a></li><li class="fsub"><a href="task13.html" target="_self">13. DOM_JS</a></li><li class="fsub"><a href="task14.html" target="_self">14. Кириллица → латиница</a></li><li class="fsub"><a href="algo.html" target="_self">14. Алгоритмическая задача</a></li><li class="fsub"><a href="plywood.html#table" target="_self">Сравнительная таблица</a></li><li class="fsub"><a href="https://fanerra.ru" target="_blank" rel="noopener">fanerra.ru — о фанере ↗</a></li></ul>
+    <div class="addr">
+      <span class="grey">Склад и офис продаж</span>
+      <span class="big-addr">Осташковское шоссе, ул.&nbsp;Ярмарочная, павильон&nbsp;1399</span>
+      <span class="grey">Пн–Вс 10:00–20:00</span>
+    </div>
+    <div class="call">
+      <a class="phone" href="tel:+79197530101">+7 919 753-01-01</a>
+      <a class="order-btn" href="process.html#order" target="_self">Оформить заказ<span>+</span></a>
+    </div>
+  </div>
+  <a class="wordmark" href="index.html" target="_self" aria-label="Покоритель — на главную"><img src="assets/logo-white.png" alt="ПОКОРИТЕЛЬ"></a>
+</footer>
+<script src="js/site.js"></script>
+<script src="js/motion.js"></script>
+
+</body>
+</html>
