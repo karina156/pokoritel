@@ -93,6 +93,7 @@
     };
     document.querySelectorAll("form[action]").forEach(function (f) {
       f.addEventListener("submit", function () {
+        if (f.dataset.ownToast) return;
         window.showToast("Готово! Ответ сервера откроется в новой вкладке");
       });
     });
