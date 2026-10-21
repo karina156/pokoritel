@@ -60,10 +60,12 @@
   <h1 class="h-hero task-title" data-reveal>Решение алгорит&shy;мической задачи</h1>
   <div class="algo" data-reveal>
     <form class="pp algo-form" id="UserEnter" name="UserEnter" action="https://httpbin.org/post" method="post" target="_blank">
-      <label class="f" id="pick_wrap">Номер задачи<select id="task_no" name="task_no"></select></label>
+      <input type="hidden" name="task_no" value="1015">
       <input type="hidden" name="student" value="Манукян Карина">
-      <label class="f">Формулировка задачи<textarea id="task" name="formulation" rows="3" readonly></textarea></label>
-      <div class="algo-inputs" id="inputs"></div>
+      <label class="f">Формулировка задачи<textarea id="task" name="formulation" rows="3" readonly>Дано вещественное число A. Вычислить x = a² + 4 + 5 при a &lt; 62; в противном случае x = 1/a² + 4a + 5.</textarea></label>
+      <div class="algo-inputs">
+        <label class="f">A<input id="a" name="a" type="number" step="any" value="10"></label>
+      </div>
       <label class="f">Результат решения задачи<input id="result" name="result" value="не определен" readonly></label>
       <div class="row buttons-row">
         <button class="btn btn-normal" id="verify" type="button">Проверить</button>
