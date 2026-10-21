@@ -22,10 +22,6 @@
     <div class="more">
       <button class="more-btn" type="button" aria-expanded="false">Ещё<span class="chev">›</span></button>
       <div class="more-menu">
-        <a href="tasks.html" target="_self"><b>Учебные задания</b><small>Все 15 заданий и где их найти</small></a>
-        <a href="task13.html" target="_self"><b>13. DOM_JS</b><small>Считываем информацию из DOM</small></a>
-        <a href="task14.html" target="_self"><b>14. Кириллица → латиница</b><small>Изменяем паспорт по клику</small></a>
-        <a href="algo.html" target="_self"><b>14. Алгоритмическая задача</b><small>Решение алгоритмической задачи</small></a>
         <a href="plywood.html#table" target="_self"><b>Сравнительная таблица</b><small>Закладка на странице «О фанере»</small></a>
         <a href="https://fanerra.ru" target="_blank" rel="noopener"><b>fanerra.ru — о фанере ↗</b><small>Внешний сайт, откроется в новом окне</small></a>
       </div>
@@ -44,10 +40,6 @@
     <a href="plywood.html" target="_self">О фанере</a>
     <a href="process.html" target="_self" aria-current="page">Как мы работаем</a>
     <a href="about.html" target="_self">О компании</a>
-    <a href="tasks.html" target="_self">Учебные задания</a>
-    <a href="task13.html" target="_self">13. DOM_JS</a>
-    <a href="task14.html" target="_self">14. Кириллица → латиница</a>
-    <a href="algo.html" target="_self">14. Алгоритмическая задача</a>
     <a href="plywood.html#table" target="_self">Сравнительная таблица</a>
     <a href="https://fanerra.ru" target="_blank" rel="noopener">fanerra.ru — о фанере ↗</a>
     <a class="small menu-phone" href="tel:+79197530101">+7 919 753-01-01</a>
@@ -79,7 +71,7 @@
     <label class="f">Материал
       <select name="material">
         <option value="">Выберите материал</option>
-        <option value="birch_fk_calibrated">Фанера березовая калиброванная ФК</option>
+        <option value="birch_fk_calibrated" selected>Фанера березовая калиброванная ФК</option>
         <option value="birch_fk_sanded">Фанера березовая шлифованная ФК</option>
         <option value="birch_fsf">Фанера березовая ФСФ</option>
         <option value="conifer_fsf">Фанера хвойная ФСФ</option>
@@ -101,17 +93,17 @@
     <label class="f f-row">Дата получения<input type="date" name="pickup_date" value="2026-10-21"></label>
     <h3>Информация о вас</h3>
     <div class="two">
-      <input type="text" name="first_name" placeholder="Имя" aria-label="Имя">
-      <input type="text" name="last_name" placeholder="Фамилия" aria-label="Фамилия">
+      <input type="text" name="first_name" value="Иван" placeholder="Имя" aria-label="Имя">
+      <input type="text" name="last_name" value="Петров" placeholder="Фамилия" aria-label="Фамилия">
     </div>
     <div class="two">
-    <input type="email" name="email" placeholder="Почтовый адрес" aria-label="Почтовый адрес">
-    <input type="password" name="account_password" placeholder="Пароль для кабинета" aria-label="Пароль для личного кабинета">
+    <input type="email" name="email" value="ivan.petrov@example.com" placeholder="Почтовый адрес" aria-label="Почтовый адрес">
+    <input type="text" name="delivery_address" value="Москва, ул. Лесная, д. 5" placeholder="Адрес доставки" aria-label="Адрес доставки">
     </div>
     <input type="hidden" name="shop" value="pokoritel">
     <input type="hidden" name="order_source" value="site_order_form">
     <div class="phone-row">
-      <input type="tel" name="phone" placeholder="Номер телефона" aria-label="Номер телефона">
+      <input type="tel" name="phone" value="+7 900 123-45-67" placeholder="Номер телефона" aria-label="Номер телефона">
       <button type="submit">Отправить все</button>
     </div>
     <label class="consent"><input type="checkbox" name="consent" value="yes" checked required> Даю согласие на обработку персональных данных</label>
@@ -131,10 +123,6 @@
       <li><a href="about.html" target="_self">О компании</a></li>
     </ul>
     <ul>
-      <li><a href="tasks.html" target="_self">Учебные задания</a></li>
-      <li class="fsub"><a href="task13.html" target="_self">13. DOM_JS</a></li>
-      <li class="fsub"><a href="task14.html" target="_self">14. Кириллица → латиница</a></li>
-      <li class="fsub"><a href="algo.html" target="_self">14. Алгоритмическая задача</a></li>
       <li class="fsub"><a href="plywood.html#table" target="_self">Сравнительная таблица</a></li>
       <li class="fsub"><a href="https://fanerra.ru" target="_blank" rel="noopener">fanerra.ru — о фанере ↗</a></li>
     </ul>
@@ -152,6 +140,6 @@
 </footer>
 <script src="js/site.js"></script>
 <script src="js/motion.js"></script>
-<script src="js/task12.js"></script>
+<script src="js/order-form.js"></script>
 </body>
 </html>

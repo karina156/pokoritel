@@ -169,7 +169,7 @@
 
     let hideTimer;
 
-    // Делаем функцию общей, чтобы её мог вызвать task12.js
+    // Делаем функцию общей, чтобы её мог вызвать order-form.js
     window.showToast = function (text) {
       toast.textContent = text;
       toast.classList.add("show");
@@ -182,7 +182,7 @@
 
     document.querySelectorAll("form[action]").forEach(function (form) {
       form.addEventListener("submit", function () {
-        // У формы заказа (задание 12) своя подсказка
+        // У формы заказа своя подсказка
         if (form.dataset.ownToast) {
           return;
         }
