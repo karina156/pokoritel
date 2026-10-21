@@ -3285,3 +3285,386 @@ textarea,
   color: #fff;
   font-weight: 400;
 }
+
+/* =====================================================================
+   Адаптив: планшет (до 999px) и телефон (до 600px)
+   Этот блок стоит в конце файла, поэтому его правила главнее
+   ===================================================================== */
+
+/* Карта на главной — встроенная Яндекс.Карта, размеры задаём стилем */
+.map iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+/* ---------- Планшет ---------- */
+@media (max-width: 999px) {
+  /* карточки «Почему мы» без пустого места внизу */
+  .stats {
+    grid-template-rows: none;
+  }
+  .stat {
+    aspect-ratio: auto;
+    min-height: 180px;
+  }
+
+  /* форма заказа занимает всю ширину, фото остаётся фоном по краям */
+  .order {
+    grid-template-columns: 1fr;
+    padding: clamp(12px, 3vw, 24px);
+  }
+  .order::before {
+    display: none;
+  }
+  .order-panel {
+    width: 100%;
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  /* фото товаров пониже, чтобы карточки не были слишком длинными */
+  .cat-grid .product .pic {
+    aspect-ratio: 1 / 1;
+  }
+
+  .hero-text p {
+    font-size: 17px;
+    line-height: 1.3;
+    max-width: 380px;
+  }
+
+  /* команда: две колонки, 10 человек = 5 ровных рядов */
+  .team {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* ---------- Телефон ---------- */
+@media (max-width: 600px) {
+  /* заголовки поменьше, чтобы не занимали полэкрана */
+  .h-hero,
+  .h-hero.process-title,
+  .h-hero.catalog-title {
+    font-size: clamp(30px, 9vw, 40px);
+  }
+
+  /* первый экран: фото сверху, текст ниже на сером фоне */
+  .hero-box {
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    display: flex;
+    flex-direction: column;
+    background: var(--light-grey);
+  }
+  .hero-box::before {
+    content: "";
+    display: block;
+    height: 260px;
+    background: #4ea8fa url(../assets/photo/hero.jpg) center / cover no-repeat;
+  }
+  .hero-text {
+    position: static;
+    width: 100%;
+    min-height: 0;
+    padding: 24px 20px 24px !important;
+    background: transparent;
+    border-radius: 0;
+  }
+  .hero-text::before,
+  .hero-text::after {
+    display: none;
+  }
+  .hero-text .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* навигация по странице и фильтры каталога — одна строка с прокруткой пальцем */
+  .page-nav,
+  .filters {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    margin-left: -16px;
+    margin-right: -16px;
+    padding-left: 16px;
+    padding-right: 16px;
+    scroll-padding-left: 16px;
+  }
+  .page-nav::-webkit-scrollbar,
+  .filters::-webkit-scrollbar {
+    display: none;
+  }
+  .page-nav a,
+  .page-nav span,
+  .filters button {
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+  .page-nav a {
+    padding: 8px 14px;
+    border-radius: 999px;
+    background: var(--light-grey);
+    text-decoration: none;
+  }
+  .filters button {
+    height: 44px;
+    padding: 0 18px;
+    font-size: 16px;
+  }
+
+  /* «Почему мы» */
+  .stat {
+    min-height: 130px;
+    padding: 18px;
+  }
+  .stat strong {
+    font-size: 22px;
+  }
+
+  /* каталог: фото 4:3 */
+  .cat-grid .product .pic {
+    aspect-ratio: 4 / 3;
+  }
+
+  /* виды фанеры: убираем двойную рамку */
+  .type {
+    padding: 8px;
+    border-radius: 24px;
+  }
+  .type .body {
+    box-shadow: none;
+    border-radius: 18px;
+    padding: 20px;
+  }
+  .type .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* форма: поля в одну колонку, кнопка отдельной строкой */
+  .order {
+    padding: 8px;
+    border-radius: 24px;
+  }
+  .order-panel {
+    padding: 22px 18px;
+    border-radius: 20px;
+    gap: 14px;
+  }
+  .order-panel h2 {
+    font-size: 28px;
+  }
+  .order-panel .two {
+    grid-template-columns: 1fr;
+  }
+  .order-panel input[type="text"],
+  .order-panel input[type="email"],
+  .order-panel input[type="number"],
+  .order-panel input[type="date"],
+  .order-panel input[type="tel"],
+  .order-panel select {
+    height: 54px;
+    border-radius: 16px;
+    padding: 0 16px;
+    font-size: 16px; /* 16px и больше: iPhone не приближает поле при вводе */
+  }
+  .order-panel .f-row {
+    flex-direction: column !important;
+    align-items: stretch;
+    gap: 8px !important;
+  }
+  .order-panel .f-row input {
+    flex: none;
+  }
+
+  /* карта и вопросы */
+  .map {
+    height: 320px !important;
+  }
+  .faq-item .q {
+    font-size: 18px;
+    line-height: 1.2;
+  }
+  .faq-item button {
+    padding: 18px;
+  }
+  .order-panel .pills {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .order-panel .pills label {
+    flex: 1;
+  }
+  .order-panel .pills span {
+    width: 100%;
+    justify-content: center;
+  }
+  .phone-row {
+    flex-direction: column;
+    align-items: stretch;
+    background: none;
+    padding: 0;
+    gap: 10px;
+  }
+  .phone-row input[type="tel"] {
+    width: 100%;
+  }
+  .phone-row button {
+    width: 100%;
+    height: 54px;
+  }
+
+  /* команда: две колонки компактных карточек */
+  .team {
+    gap: 14px !important;
+  }
+  .team figure {
+    gap: 8px;
+  }
+  .team .role {
+    left: 6px;
+    right: 6px;
+    bottom: 6px;
+    height: 26px;
+    font-size: 11px;
+    border-radius: 8px;
+  }
+  .team figcaption {
+    font-size: 15px;
+    line-height: 1.1;
+    letter-spacing: 0.5px;
+  }
+
+  /* шаги заказа: номер над заголовком, текст на всю ширину */
+  .h-hero.process-title {
+    font-size: 28px;
+    margin-bottom: 30px;
+  }
+  .steps li {
+    grid-template-columns: 1fr;
+    min-height: 0;
+    gap: 10px;
+    padding: 20px;
+  }
+  .steps .n {
+    font-size: 18px;
+    color: var(--text-muted);
+  }
+  .steps h2 {
+    font-size: 24px;
+  }
+  .steps p {
+    grid-column: 1;
+    font-size: 16px;
+  }
+
+  /* подвал: ссылки в две колонки */
+  .site-footer .cols {
+    grid-template-columns: 1fr 1fr;
+    gap: 24px 16px;
+  }
+  .site-footer .cols .addr,
+  .site-footer .cols .call {
+    grid-column: 1 / -1;
+  }
+}
+
+/* Сравнительная таблица на планшете и телефоне: каждая строка — карточка */
+@media (max-width: 999px) {
+  /* сравнительная таблица превращается в карточки */
+  .table-scroll {
+    overflow: visible;
+  }
+  table.cmp {
+    min-width: 0;
+    background: none;
+    font-size: 16px;
+  }
+  table.cmp thead {
+    display: none;
+  }
+  table.cmp,
+  table.cmp tbody,
+  table.cmp tr,
+  table.cmp tbody th,
+  table.cmp td {
+    display: block;
+    width: 100%;
+  }
+  table.cmp tr {
+    background: rgba(255, 255, 255, 0.92);
+    border: 2px solid #000;
+    border-radius: 20px;
+    padding: 6px 16px;
+    margin-bottom: 10px;
+  }
+  table.cmp tbody th,
+  table.cmp td,
+  table.cmp td:last-child {
+    border: 0;
+    border-radius: 0;
+    padding: 10px 0;
+  }
+  table.cmp td {
+    border-top: 1px solid rgba(0, 0, 0, 0.12);
+  }
+  /* подпись столбца берётся из атрибута data-label */
+  table.cmp td::before {
+    content: attr(data-label);
+    display: block;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-muted);
+    margin-bottom: 2px;
+  }
+
+  .photo-card {
+    aspect-ratio: 16 / 10;
+  }
+}
+@media (min-width: 601px) and (max-width: 999px) {
+  /* на планшете карточки таблицы в две колонки */
+  table.cmp tbody {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  table.cmp tr {
+    margin-bottom: 0;
+  }
+}
+
+/* Мобильное меню: крупные пункты с отступами, второстепенные ссылки мельче, телефон — кнопкой */
+@media (max-width: 1279px) {
+  .mobile-menu nav {
+    gap: 22px;
+  }
+  .mobile-menu nav a.small {
+    font-size: 18px;
+  }
+  .mobile-menu nav a.small:not(.menu-phone) + a:not(.small),
+  .mobile-menu nav a:not(.small) + a.small {
+    margin-top: 14px;
+    padding-top: 26px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  .mobile-menu nav a.menu-phone {
+    margin-top: auto;
+    height: 56px;
+    padding: 0;
+    border-radius: 18px;
+    background: #fff;
+    color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+  }
+}
