@@ -92,7 +92,7 @@
         }
         counterObserver.unobserve(entry.target);
 
-        // Меняем только текст с цифрой, подпись внутри <b> не трогаем
+        // Меняем только текст с цифрой, подпись внутри <strong> не трогаем
         const textNode = entry.target.firstChild;
         if (textNode && textNode.nodeType === Node.TEXT_NODE) {
           runCounter(textNode);
@@ -101,7 +101,7 @@
     }, { threshold: 0.5 });
 
     if (!lessMotion) {
-      document.querySelectorAll(".stat b").forEach(function (number) {
+      document.querySelectorAll(".stat strong").forEach(function (number) {
         counterObserver.observe(number);
       });
     }

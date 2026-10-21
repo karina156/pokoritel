@@ -279,17 +279,17 @@ article[id],
   background: var(--light-grey);
   color: #000;
 }
-.more-menu b {
+.more-menu strong {
   font-size: 20px;
   font-weight: 500;
   line-height: 1.1;
 }
-.more-menu a[aria-current="page"] b {
+.more-menu a[aria-current="page"] strong {
   font-weight: 700;
   text-decoration: underline;
   text-underline-offset: 5px;
 }
-.more-menu small {
+.more-menu .menu-note {
   font-size: 16px;
   font-weight: 500;
   color: var(--text-muted);
@@ -548,7 +548,7 @@ article[id],
   flex-direction: column;
   gap: 16px;
 }
-.stat b {
+.stat strong {
   font-family: var(--font-title);
   font-weight: 500;
   letter-spacing: 1.5px;
@@ -1269,7 +1269,7 @@ table.cmp tbody th img {
   flex-wrap: wrap;
   background: transparent;
 }
-.checklist b {
+.checklist strong {
   display: block;
   font-size: 24px;
   font-weight: 500;
@@ -2269,7 +2269,7 @@ table.cmp tbody th img {
   .stat {
     padding: 16px;
   }
-  .stat b {
+  .stat strong {
     font-size: clamp(16px, 4.6vw, 24px);
     letter-spacing: 0.5px;
   }
@@ -2334,7 +2334,7 @@ table.cmp tbody th img {
   align-items: flex-start;
   padding: 24px 24px 22px;
 }
-.stat b {
+.stat strong {
   line-height: 1;
 }
 .stat .btn {
@@ -2409,7 +2409,7 @@ table.cmp tbody th img {
     padding: 22px;
   }
 }
-.stat b {
+.stat strong {
   font-size: clamp(22px, 2.75vw, 42px);
 }
 .order {
