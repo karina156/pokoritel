@@ -206,46 +206,65 @@
   <img class="order-mark" src="assets/mark-white.png" alt="">
   <form class="order-panel" name="plywood_order" action="https://httpbin.org/post" method="post" target="_blank">
     <h2>Для заказа заполните форму</h2>
-    <h3>Параметры заказа</h3>
-    <label class="f">Материал
-      <select name="material">
-        <option value="">Выберите материал</option>
-        <option value="birch_fk_calibrated" selected>Фанера березовая калиброванная ФК</option>
-        <option value="birch_fk_sanded">Фанера березовая шлифованная ФК</option>
-        <option value="birch_fsf">Фанера березовая ФСФ</option>
-        <option value="conifer_fsf">Фанера хвойная ФСФ</option>
-        <option value="laminated_fof">Фанера ламинированная ФОФ</option>
-        <option value="osb3">Плита ОСБ (OSB-3)</option>
-        <option value="csp">Цементно-стружечная плита ЦСП</option>
-      </select></label>
-    <div class="two">
-      <label class="f">Толщина листа
-        <select name="thickness_mm"><option value="3">3 мм</option><option value="4">4 мм</option><option value="5">5 мм</option><option value="6" selected>6 мм</option><option value="8">8 мм</option><option value="9">9 мм</option><option value="10">10 мм</option><option value="12">12 мм</option><option value="15">15 мм</option><option value="18">18 мм</option><option value="21">21 мм</option><option value="24">24 мм</option></select></label>
-      <label class="f">Кол-во листов<input type="number" name="sheets_count" value="10" min="1" max="500"></label>
-    </div>
-    <div class="f">Способ получения
-      <div class="pills">
-        <label><input type="radio" name="delivery_method" value="delivery" checked><span>Доставка</span></label>
-        <label><input type="radio" name="delivery_method" value="pickup"><span>Самовывоз</span></label>
+    <!-- форма разбита на 3 шага, переключает их js/order-form.js -->
+    <ol class="form-steps-bar" aria-label="Шаги заказа">
+      <li class="is-current"><span>1</span>Товар</li>
+      <li><span>2</span>Получение</li>
+      <li><span>3</span>Контакты</li>
+    </ol>
+
+    <fieldset class="form-step is-current" data-step="1">
+      <legend>Шаг 1. Параметры заказа</legend>
+      <label class="f">Материал
+        <select name="material" required>
+          <option value="">Выберите материал</option>
+          <option value="birch_fk_calibrated" selected>Фанера березовая калиброванная ФК</option>
+          <option value="birch_fk_sanded">Фанера березовая шлифованная ФК</option>
+          <option value="birch_fsf">Фанера березовая ФСФ</option>
+          <option value="conifer_fsf">Фанера хвойная ФСФ</option>
+          <option value="laminated_fof">Фанера ламинированная ФОФ</option>
+          <option value="osb3">Плита ОСБ (OSB-3)</option>
+          <option value="csp">Цементно-стружечная плита ЦСП</option>
+        </select></label>
+      <div class="two">
+        <label class="f">Толщина листа
+          <select name="thickness_mm"><option value="3">3 мм</option><option value="4">4 мм</option><option value="5">5 мм</option><option value="6" selected>6 мм</option><option value="8">8 мм</option><option value="9">9 мм</option><option value="10">10 мм</option><option value="12">12 мм</option><option value="15">15 мм</option><option value="18">18 мм</option><option value="21">21 мм</option><option value="24">24 мм</option></select></label>
+        <label class="f">Кол-во листов<input type="number" name="sheets_count" value="10" min="1" max="500" required></label>
       </div>
-    </div>
-    <label class="f f-row">Дата получения<input type="date" name="pickup_date" value="2026-10-21"></label>
-    <h3>Информация о вас</h3>
-    <div class="two">
-      <input type="text" name="first_name" value="Иван" placeholder="Имя" aria-label="Имя">
-      <input type="text" name="last_name" value="Петров" placeholder="Фамилия" aria-label="Фамилия">
-    </div>
-    <div class="two">
-    <input type="email" name="email" value="ivan.petrov@example.com" placeholder="Почтовый адрес" aria-label="Почтовый адрес">
-    <input type="text" name="delivery_address" value="Москва, ул. Лесная, д. 5" placeholder="Адрес доставки" aria-label="Адрес доставки">
-    </div>
+    </fieldset>
+
+    <fieldset class="form-step" data-step="2">
+      <legend>Шаг 2. Получение</legend>
+      <div class="f">Способ получения
+        <div class="pills">
+          <label><input type="radio" name="delivery_method" value="delivery" checked><span>Доставка</span></label>
+          <label><input type="radio" name="delivery_method" value="pickup"><span>Самовывоз</span></label>
+        </div>
+      </div>
+      <label class="f">Дата получения<input type="date" name="pickup_date" value="2026-10-21" required></label>
+      <label class="f delivery-only">Адрес доставки<input type="text" name="delivery_address" value="Москва, ул. Лесная, д. 5" placeholder="Город, улица, дом"></label>
+    </fieldset>
+
+    <fieldset class="form-step" data-step="3">
+      <legend>Шаг 3. Информация о вас</legend>
+      <div class="two">
+        <label class="f">Имя<input type="text" name="first_name" value="Иван" placeholder="Имя" required></label>
+        <label class="f">Фамилия<input type="text" name="last_name" value="Петров" placeholder="Фамилия" required></label>
+      </div>
+      <label class="f">Почта<input type="email" name="email" value="ivan.petrov@example.com" placeholder="Почтовый адрес" required></label>
+      <label class="f">Телефон<input type="tel" name="phone" value="+7 900 123-45-67" placeholder="Номер телефона" required></label>
+      <p class="form-summary" aria-live="polite"></p>
+      <label class="consent"><input type="checkbox" name="consent" value="yes" checked required> Даю согласие на обработку персональных данных</label>
+    </fieldset>
+
     <input type="hidden" name="shop" value="pokoritel">
     <input type="hidden" name="order_source" value="site_order_form">
-    <div class="phone-row">
-      <input type="tel" name="phone" value="+7 900 123-45-67" placeholder="Номер телефона" aria-label="Номер телефона">
-      <button type="submit">Отправить все</button>
+
+    <div class="form-step-nav">
+      <button class="step-back" type="button" data-step-back>← Назад</button>
+      <button class="step-next" type="button" data-step-next>Далее →</button>
+      <button class="step-send" type="submit">Отправить заказ</button>
     </div>
-    <label class="consent"><input type="checkbox" name="consent" value="yes" checked required> Даю согласие на обработку персональных данных</label>
   </form>
 </div>
 <p class="to-top"><a href="#top" target="_self">↑ К началу страницы</a></p>
